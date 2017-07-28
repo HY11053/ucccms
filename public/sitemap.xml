@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <urlset><url>
+        <loc>http://www.ucclaundry.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        </url><url>
+                <loc>http://www.ucclaundry.com/chengben/</loc>
+                <changefreq>daily</changefreq>                
+                <priority>1.0</priority>
+            </url><url>
+                <loc>http://www.ucclaundry.com/chengben/1.shtml</loc>
+                <lastmod>2017-07-28</lastmod>
+                <changefreq>daily</changefreq>
+                <priority>1.0</priority>
+            </url></urlset>
