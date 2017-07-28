@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped text-center">
                         <tr>
                             <th style="width: 10px">#ID</th>
                             <th>用户名</th>
@@ -29,9 +29,9 @@
                             <td>{{$adminlist->name}}</td>
                             <td>{{$adminlist->email}}</td>
                             <td>{{$adminlist->group->groupname}}</td>
-                            <td>{{$adminlist->dutytype}}</td>
-                            <td>{{$adminlist->dutytype}}</td>
-                            <td>{{$adminlist->dutytype}}</td>
+                            <td>@if($adminlist->dutytype==1) 管理员 @elseif($adminlist->dutytype==2) 编辑 @else 超级管理员 @endif</td>
+                            <td>{{\App\AdminModel\Archive::where('write',\App\AdminModel\Admin::where('id',$adminlist->id)->value('name'))->where('created_at','>',\Carbon\Carbon::today())->count()}}</td>
+                            <td>{{\App\AdminModel\Archive::where('write',\App\AdminModel\Admin::where('id',$adminlist->id)->value('name'))->count()}}</td>
                             <td class="newcolor"><span class="badge bg-green"><a href="/admin/admin/edit/{{$adminlist->id}}">编辑</a></span> <span class="badge bg-red"><a href="/admin/admin/delete/{{$adminlist->id}}">删除</a> </span></td>
                         </tr>
                        @endforeach

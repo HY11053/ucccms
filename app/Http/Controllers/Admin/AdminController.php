@@ -141,6 +141,10 @@ class AdminController extends Controller
      */
     function Delete($id)
     {
+        if($id==1)
+        {
+            exit('禁止删除超级管理员');
+        }
         Admin::find($id)->delete();
         redirect(action('Admin\AdminController@Index'));
         return redirect(action('Admin\AdminController@Index'));
