@@ -25,7 +25,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">前台会员数</span>
-                    <span class="info-box-number">{{\App\User::where('id','<>',0)->count()}}</span>
+                    <span class="info-box-number">{{\App\AdminModel\Admin::where('id','<>',0)->count()}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -55,8 +55,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">待发布文档</span>
-
-                        <span class="info-box-number">{{\App\AdminModel\Archive::where('ismake','<>',0)->count()}}</span>
+                        <span class="info-box-number">{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::now())->count()}}</span>
 
                 </div>
                 <!-- /.info-box-content -->
@@ -71,7 +70,15 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">模板片段数据</h3><span style="margin-left: 5px; display: inline-block;"><i class="ion ion-bonfire text-red"></i>今日模板添加数：</span><span style=" margin-left: 5px;isplay: inline-block;"><i class="ion ion-ios-pulse text-red"></i>今日品牌添加数：</span>
+                    <h3 class="box-title">电话提交数据</h3>
+                    <span style="margin-left: 5px; display: inline-block;">
+                        <i class="ion ion-bonfire text-red"></i>
+                        今日文章发布数：{{\App\AdminModel\Archive::where('created_at','<',\Carbon\Carbon::now())->where('created_at','>',\Carbon\Carbon::yesterday())->count()}}
+                    </span>
+                    <span style=" margin-left: 5px;isplay: inline-block;">
+                        <i class="ion ion-ios-pulse text-red"></i>
+                        今日电话提交数：{{\App\AdminModel\Phonemanage::where('created_at','<',\Carbon\Carbon::now())->where('created_at','>',\Carbon\Carbon::yesterday())->count()}}
+                    </span>
 
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -107,7 +114,7 @@
 
                             <div class="progress-group">
                                 <span class="progress-text">零食店品牌</span>
-                                <span class="progress-number"><b>934</b>/9907</span>
+                                <span class="progress-number"><b>19</b>/25</span>
 
                                 <div class="progress sm">
                                     <div class="progress-bar progress-bar-aqua" style="width: 9.43% "></div>
