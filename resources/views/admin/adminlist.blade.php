@@ -28,7 +28,7 @@
                             <td>{{$adminlist->id}}.</td>
                             <td>{{$adminlist->name}}</td>
                             <td>{{$adminlist->email}}</td>
-                            <td>{{$adminlist->group->groupname}}</td>
+                            <td>@if($adminlist->group) {{$adminlist->group->groupname}} @endif</td>
                             <td>@if($adminlist->dutytype==1) 管理员 @elseif($adminlist->dutytype==2) 编辑 @else 超级管理员 @endif</td>
                             <td>{{\App\AdminModel\Archive::where('write',\App\AdminModel\Admin::where('id',$adminlist->id)->value('name'))->where('created_at','>',\Carbon\Carbon::today())->count()}}</td>
                             <td>{{\App\AdminModel\Archive::where('write',\App\AdminModel\Admin::where('id',$adminlist->id)->value('name'))->count()}}</td>

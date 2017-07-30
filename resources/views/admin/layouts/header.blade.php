@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>L</b>TY</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>LARSTY</b>CMSV1.0</span>
+        <span class="logo-lg"><b>LARSTY</b>CMSV2.0</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -37,7 +37,7 @@
 
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="@if(auth('admin')->user()->portrait) {{auth('admin')->user()->portrait}} @else /AdminLTE/dist/img/user3-128x128.jpg @endif" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 邮件信息
@@ -158,13 +158,13 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{auth('admin')->user()->portrait}}" class="user-image" alt="User Image">
+                        <img src="@if(auth('admin')->user()->portrait) {{auth('admin')->user()->portrait}} @else /AdminLTE/dist/img/user3-128x128.jpg @endif" class="user-image" alt="User Image">
                         <span class="hidden-xs">{{auth('admin')->user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{auth('admin')->user()->portrait}}" class="img-circle" alt="User Image">
+                            <img src="@if(auth('admin')->user()->portrait) {{auth('admin')->user()->portrait}} @else /AdminLTE/dist/img/user3-128x128.jpg @endif" class="img-circle" alt="User Image">
 
                             <p>
                                 {{auth('admin')->user()->name}} - Web Developer

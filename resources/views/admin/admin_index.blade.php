@@ -111,43 +111,16 @@
                             <p class="text-center">
                                 <strong>编辑文章完成比</strong>
                             </p>
-
+                            @foreach($articleUsers as $articleUser)
                             <div class="progress-group">
-                                <span class="progress-text">零食店品牌</span>
-                                <span class="progress-number"><b>19</b>/25</span>
+                                <span class="progress-text">{{$articleUser}}</span>
+                                <span class="progress-number"><b>{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::yesterday())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()}}</b>/25</span>
 
                                 <div class="progress sm">
-                                    <div class="progress-bar progress-bar-aqua" style="width: 9.43% "></div>
+                                    <div class="progress-bar progress-bar-{{$colorStyle[rand(0,4)]}}" style="width: {{sprintf("%.4f",\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::yesterday())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()/25,0,-1)*100}}%"></div>
                                 </div>
                             </div>
-                            <!-- /.progress-group -->
-                            <div class="progress-group">
-                                <span class="progress-text">炒货店品牌</span>
-                                <span class="progress-number">438</b>/6334</span>
-
-                                <div class="progress sm">
-                                    <div class="progress-bar progress-bar-red" style="width:  6.92% "></div>
-                                </div>
-                            </div>
-                            <!-- /.progress-group -->
-                            <div class="progress-group">
-                                <span class="progress-text">干果店品牌</span>
-                                <span class="progress-number"><b>978</b>/12300</span>
-
-                                <div class="progress sm">
-                                    <div class="progress-bar progress-bar-green" style="width:  7.95% "></div>
-                                </div>
-                            </div>
-                            <!-- /.progress-group -->
-                            <div class="progress-group">
-                                <span class="progress-text">进口零食品牌</span>
-                                <span class="progress-number"><b>0</b>/2738 </span>
-
-                                <div class="progress sm">
-                                    <div class="progress-bar progress-bar-yellow" style="width:  0%  "></div>
-                                </div>
-                            </div>
-                            <!-- /.progress-group -->
+                            @endforeach
 
                         </div>
                         <!-- /.col -->
@@ -161,7 +134,7 @@
                             <div class="description-block border-right">
                                 <span class="description-percentage text-green"><i class="fa fa-caret-up"></i>  9.43%  </span>
                                 <h5 class="description-header">9907</h5>
-                                <span class="description-text">零食品牌</span>
+                                <span class="description-text">待添加模块</span>
                             </div>
                             <!-- /.description-block -->
                         </div>
@@ -170,7 +143,7 @@
                             <div class="description-block border-right">
                                 <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i>  7.95% </span>
                                 <h5 class="description-header">12300</h5>
-                                <span class="description-text">干果品牌</span>
+                                <span class="description-text">待添加模块</span>
                             </div>
                             <!-- /.description-block -->
                         </div>
@@ -179,7 +152,7 @@
                             <div class="description-block border-right">
                                 <span class="description-percentage text-green"><i class="fa fa-caret-up"></i>  6.92% </span>
                                 <h5 class="description-header">6334</h5>
-                                <span class="description-text">炒货品牌</span>
+                                <span class="description-text">待添加模块</span>
                             </div>
                             <!-- /.description-block -->
                         </div>
@@ -188,7 +161,7 @@
                             <div class="description-block">
                                 <span class="description-percentage text-red"><i class="fa fa-caret-down"></i>  0% </span>
                                 <h5 class="description-header">2738</h5>
-                                <span class="description-text">进口零食品牌</span>
+                                <span class="description-text">待添加模块</span>
                             </div>
                             <!-- /.description-block -->
                         </div>
@@ -300,17 +273,14 @@
 
                 <div class="box-tools pull-right">
                     <ul class="pagination pagination-sm inline">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
+
                     </ul>
                 </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <ul class="todo-list">
+                    @foreach($newArticles as $index=>$newArticle)
                     <li>
                         <!-- drag handle -->
                         <span class="handle">
@@ -320,86 +290,19 @@
                         <!-- checkbox -->
                         <input type="checkbox" value="">
                         <!-- todo text -->
-                        <span class="text">Design a nice theme</span>
+                        <span class="text">{{$newArticle->title}}</span>
                         <!-- Emphasis label -->
-                        <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                        <small class="label {{$labelStyle[$index]}} pull-right" style="font-weight: normal;"><i class="fa fa-clock-o"></i> {{$newArticle->published_at}}—{{$newArticle->write}}</small>
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
                             <i class="fa fa-edit"></i>
                             <i class="fa fa-trash-o"></i>
                         </div>
                     </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="">
-                        <span class="text">Make the theme responsive</span>
-                        <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="">
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="">
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="">
-                        <span class="text">Check your messages and notifications</span>
-                        <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                        <input type="checkbox" value="">
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-                <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-            </div>
         </div>
         <!-- /.box -->
             </div>

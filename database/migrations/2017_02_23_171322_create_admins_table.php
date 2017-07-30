@@ -18,8 +18,8 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('portrait')->nullable();
+            $table->enum('dutytype', [0, 1,2])->default(2);
             $table->integer('groupid')->nullable();
-            $table->integer('dutytype')->default(0);
             $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();

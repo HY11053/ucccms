@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{auth('admin')->user()->portrait}}" class="img-circle" alt="User Image">
+                <img src="@if(auth('admin')->user()->portrait) {{auth('admin')->user()->portrait}} @else /AdminLTE/dist/img/user3-128x128.jpg @endif" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{auth('admin')->user()->name}}</p>

@@ -99,11 +99,6 @@ class ArticleController extends Controller
         $request['dutyadmin']=auth('admin')->id();
         //图片alt信息及title替换
         $request['body']=$this->ImageInformation($request->input('body'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmxq_content']=$this->ImageInformation($request->input('jmxq_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmys_content']=$this->ImageInformation($request->input('jmys_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmask_content']=$this->ImageInformation($request->input('jmask_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmlc_content']=$this->ImageInformation($request->input('jmlc_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmzc_content']=$this->ImageInformation($request->input('jmzc_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
         Archive::create($request->all());
         $request['id']=Archive::max('id');
         Addonarticle::create($request->all());
@@ -187,11 +182,6 @@ class ArticleController extends Controller
         }
 
         $request['body']=$this->ImageInformation($request->input('body'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmxq_content']=$this->ImageInformation($request->input('jmxq_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmys_content']=$this->ImageInformation($request->input('jmys_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmask_content']=$this->ImageInformation($request->input('jmask_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmlc_content']=$this->ImageInformation($request->input('jmlc_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $request['jmzc_content']=$this->ImageInformation($request->input('jmzc_content'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
         $flags=array_unique(explode(',',Archive::where('id',$id)->value('flags')));
         $request['flags']=implode(',',$flags);
         Archive::findOrFail($id)->update($request->all());

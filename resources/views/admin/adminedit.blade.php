@@ -30,7 +30,7 @@
                         <option value="{{$group->id}}">{{$group->groupname}}</option>
                     @endforeach
                 </select>
-                @if(auth('admin')->user()->id != 1)
+                @if($adminUser->dutytype)
                 <div class="form-group has-feedback" style="margin-top: 10px; padding-left: 10px;">
                     <label style="display: inline-block; margin-right: 10px;">
                         <input type="radio" name="dutytype" value="1" class="flat-red" @if($adminUser->dutytype) checked @endif>管理员

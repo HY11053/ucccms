@@ -30,6 +30,8 @@ $factory->define(App\AdminModel\Admin::class, function (Faker\Generator $faker) 
     return [
         'name' => $faker->name,
         'email' => 'liang569874@163.com',
+        'portrait'=>'/AdminLTE/dist/img/user4-128x128.jpg',
+        'dutytype'=>'0',
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
