@@ -23,7 +23,7 @@ class PhoneController extends Controller
         $cb=$dpzj+$rycb;
         $yye=$mdjj*$mrcb;
         $rlr=$mdjj*$mrcb*0.6;
-        $referer=$request->session()->all()['referer'][0];
+        $referer=is_array($request->session()->get('referer'))?$request->session()->get('referer')[0]:$request->input('host');
         if(empty(Phonemanage::where('phoneno',$phoneno)->value('phoneno')))
         {
             Phonemanage::create(['phoneno'=>$phoneno,'name'=>'计算器','ip'=>$request->getClientIp(),'note'=>'成本计算器提交','host'=>$request->input('host'),'referer'=>$referer]);

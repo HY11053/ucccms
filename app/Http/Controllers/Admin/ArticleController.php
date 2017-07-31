@@ -156,6 +156,7 @@ class ArticleController extends Controller
         }else{
             $request['flags']='';
         }
+
         if($request['image'])
         {
             $request['litpic']=UploadImages::UploadImage($request);
@@ -182,7 +183,7 @@ class ArticleController extends Controller
         }
 
         $request['body']=$this->ImageInformation($request->input('body'),$request->input('shorttitle')?$request->input('shorttitle'):$request->input('brandname'),$request->input('title'));
-        $flags=array_unique(explode(',',Archive::where('id',$id)->value('flags')));
+        $flags=array_unique(explode(',',Archive::where('id',$id)->value('flags').','.$request['flags']));
         $request['flags']=implode(',',$flags);
         Archive::findOrFail($id)->update($request->all());
         Addonarticle::findOrFail($id)->update($request->all());

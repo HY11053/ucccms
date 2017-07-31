@@ -37,7 +37,7 @@
                             <td>{{str_limit($adminlist->note,30,'')}}</td>
                             <td>{{str_limit($adminlist->referer,30,'...')}}</td>
                            <td>{{$adminlist->host}}</td>
-                           <td>{{$adminlist->ip}}</td>
+                           <td>@foreach(\Zhuzhichao\IpLocationZh\Ip::find($adminlist->ip) as $loops=>$ip) @if($loops<3){{$ip}}- @endif @endforeach</td>
                             <td>{{$adminlist->created_at}}</td>
                             <td class="newcolor"><span class="badge bg-green"><a href="/admin/phone/edit/{{$adminlist->id}}">编辑</a></span> <span class="badge bg-red"><a href="/admin/phone/delete/{{$adminlist->id}}">删除</a> </span></td>
                         </tr>
