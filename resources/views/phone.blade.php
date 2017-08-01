@@ -39,7 +39,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        {!! Form::open(array('action' => 'Admin\PhoneManageController@CreatePhoneManage','role'=>'form')) !!}
+        {!! Form::open(array('action' => 'Mobile\PhoneController@Complates','role'=>'form')) !!}
         <div class="box-body">
             <div class="form-group">
                 {{Form::label('name','姓名')}}

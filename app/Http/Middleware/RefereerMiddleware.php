@@ -19,8 +19,8 @@ class RefereerMiddleware
              return $next($request);
          }else{
                  $request->header();
-                 $referer=isset($request->header()['referer'])?$request->header()['referer']:$request->header()['host'];
-                 session(['referer' =>$referer]);
+                 $referer=$request->header('referer')?$request->header('referer'):$request->header('host');
+                 session()->put('referer', $referer);
                  return $next($request);
              }
 

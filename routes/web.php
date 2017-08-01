@@ -120,6 +120,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function ()
 Route::get('phone',function(){
     return view('phone');
 });
+Route::post('/phone/complate','Mobile\PhoneController@Complates');
 
 //前台界面
 /*
