@@ -25,7 +25,6 @@
                             <th>投票数</th>
                             <th>否定数</th>
                             <th>操作</th>
-
                         </tr>
                         @foreach($answerlists as $answerlist)
                             <tr>
@@ -38,7 +37,6 @@
                                 <td>{{$answerlist->viewnum}}</td>
                                 <td>{{$answerlist->answernum}}</td>
                                 <td class="newcolor"><span class="badge bg-green"><a href="/admin/answer/edit/{{$answerlist->id}}">编辑</a></span> <span class="badge bg-red"><a href="/admin/answer/delete/{{$answerlist->id}}">删除</a> </span></td>
-
                             </tr>
                         @endforeach
                     </table>
@@ -58,18 +56,6 @@
 @stop
 
 @section('libs')
-    <!-- jQuery 2.2.3 -->
-    <script src="/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="/AdminLTE/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/AdminLTE/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/AdminLTE/dist/js/demo.js"></script>
     <script src="/AdminLTE/plugins/switchery/switchery.js"></script>
     <script>
         $(document).ready(function() {

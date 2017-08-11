@@ -58,18 +58,6 @@
 @stop
 
 @section('libs')
-    <!-- jQuery 2.2.3 -->
-    <script src="/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="/AdminLTE/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/AdminLTE/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/AdminLTE/dist/js/demo.js"></script>
     <script src="/AdminLTE/plugins/switchery/switchery.js"></script>
     <script>
         $(document).ready(function() {
@@ -87,22 +75,14 @@
         })
     </script>
 
-
     <script type="text/javascript">
-
         // Default
         // if-else statement used only for fixing <IE9 issues
-
         // Switch sizes
         var small = document.querySelector('.js-switch-small');
         var switchery = new Switchery(small, { size: 'small' });
-
         var large = document.querySelector('.js-switch-large');
         var switchery = new Switchery(large, { size: 'large' });
-
-
-
-
     </script>
 @stop
 

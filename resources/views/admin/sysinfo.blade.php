@@ -4,9 +4,10 @@
     @stop
     @section('content')
         <div class="right_col" role="main">
-            简介：零食品牌CMS是基于laravel5.3框架开发的CMS系统
+            简介：LARSTYCMSV2.0是基于laravel5.4框架开发的CMS系统,包含普通文章和品牌文档的发布、审核、预发布、自动推送等一系列文档发布功能；
+            问答模块、评论模块、友情链接模块、系统用户管理及授权、电话提交管理、微信公众平台，消息推送通知等集于一体的功能。
             <hr/>
-            当前版本V1.0
+            当前版本V2.0
             <hr/>
             运行环境信息：{{$_SERVER['SERVER_SOFTWARE']}}
             <hr/>
@@ -17,27 +18,9 @@
             文章总数：{{\App\AdminModel\Archive::max('id')}}
             <hr/>
             问答总数：{{\App\AdminModel\Ask::max('id')}}
-            <hr/>
-            收录量：
-            <hr/>
-            当日收录：
-            <hr/>
 
         </div>
     @stop
 
     @section('libs')
-            <!-- jQuery 2.2.3 -->
-    <script src="/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="/AdminLTE/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/AdminLTE/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/AdminLTE/dist/js/demo.js"></script>
-
 @stop

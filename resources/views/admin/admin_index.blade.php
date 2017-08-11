@@ -2,7 +2,7 @@
 @section('title')后台管理中心首页@stop
 @section('head')
     <link rel="stylesheet" href="/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    @stop
+@stop
 @section('content')
     <!-- Info boxes -->
     <div class="row">
@@ -55,7 +55,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">待发布文档</span>
-                        <span class="info-box-number">{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::now())->count()}}</span>
+                    <span class="info-box-number">{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::now())->count()}}</span>
 
                 </div>
                 <!-- /.info-box-content -->
@@ -112,14 +112,14 @@
                                 <strong>编辑文章完成比</strong>
                             </p>
                             @foreach($articleUsers as $articleUser)
-                            <div class="progress-group">
-                                <span class="progress-text">{{$articleUser}}</span>
-                                <span class="progress-number"><b>{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::yesterday())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()}}</b>/25</span>
+                                <div class="progress-group">
+                                    <span class="progress-text">{{$articleUser}}</span>
+                                    <span class="progress-number"><b>{{\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::today())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()}}</b>/25</span>
 
-                                <div class="progress sm">
-                                    <div class="progress-bar progress-bar-{{$colorStyle[rand(0,4)]}}" style="width: {{sprintf("%.4f",\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::yesterday())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()/25,0,-1)*100}}%"></div>
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-{{$colorStyle[rand(0,4)]}}" style="width: {{sprintf("%.4f",\App\AdminModel\Archive::where('created_at','>',\Carbon\Carbon::today())->where('created_at','<',\Carbon\Carbon::now())->where('write',$articleUser)->count()/25,0,-1)*100}}%"></div>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                         </div>
@@ -178,133 +178,133 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-            <div class="box box-success">
-            <div class="box-header">
-                <i class="fa fa-comments-o"></i>
+                <div class="box box-success">
+                    <div class="box-header">
+                        <i class="fa fa-comments-o"></i>
 
-                <h3 class="box-title">微信留言</h3>
+                        <h3 class="box-title">微信留言</h3>
 
-                <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                    <div class="btn-group" data-toggle="btn-toggle">
-                        <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="box-body chat" id="chat-box">
-                <!-- chat item -->
-                <div class="item">
-                    <img src="/AdminLTE/dist/img/user4-128x128.jpg" alt="user image" class="online">
-
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                            Mike Doe
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                    <div class="attachment">
-                        <h4>Attachments:</h4>
-
-                        <p class="filename">
-                            Theme-thumbnail-image.jpg
-                        </p>
-
-                        <div class="pull-right">
-                            <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                        <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                            <div class="btn-group" data-toggle="btn-toggle">
+                                <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.attachment -->
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                    <img src="/AdminLTE/dist/img/user3-128x128.jpg" alt="user image" class="offline">
+                    <div class="box-body chat" id="chat-box">
+                        <!-- chat item -->
+                        <div class="item">
+                            <img src="/AdminLTE/dist/img/user4-128x128.jpg" alt="user image" class="online">
 
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                            Alexander Pierce
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                    <img src="/AdminLTE/dist/img/user2-160x160.jpg" alt="user image" class="offline">
+                            <p class="message">
+                                <a href="#" class="name">
+                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                    Mike Doe
+                                </a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </p>
+                            <div class="attachment">
+                                <h4>Attachments:</h4>
 
-                    <p class="message">
-                        <a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                            Susan Doe
-                        </a>
-                        I would like to meet you to discuss the latest news about
-                        the arrival of the new theme. They say it is going to be one the
-                        best themes on the market
-                    </p>
-                </div>
-                <!-- /.item -->
-            </div>
-            <!-- /.chat -->
-            <div class="box-footer">
-                <div class="input-group">
-                    <input class="form-control" placeholder="Type message...">
+                                <p class="filename">
+                                    Theme-thumbnail-image.jpg
+                                </p>
 
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                                </div>
+                            </div>
+                            <!-- /.attachment -->
+                        </div>
+                        <!-- /.item -->
+                        <!-- chat item -->
+                        <div class="item">
+                            <img src="/AdminLTE/dist/img/user3-128x128.jpg" alt="user image" class="offline">
+
+                            <p class="message">
+                                <a href="#" class="name">
+                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                    Alexander Pierce
+                                </a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </p>
+                        </div>
+                        <!-- /.item -->
+                        <!-- chat item -->
+                        <div class="item">
+                            <img src="/AdminLTE/dist/img/user2-160x160.jpg" alt="user image" class="offline">
+
+                            <p class="message">
+                                <a href="#" class="name">
+                                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
+                                    Susan Doe
+                                </a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </p>
+                        </div>
+                        <!-- /.item -->
+                    </div>
+                    <!-- /.chat -->
+                    <div class="box-footer">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Type message...">
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- /.box (chat box) -->
+                <!-- /.box (chat box) -->
 
-        <!-- TO DO List -->
-        <div class="box box-primary">
-            <div class="box-header">
-                <i class="ion ion-clipboard"></i>
+                <!-- TO DO List -->
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
 
-                <h3 class="box-title">最新文章更新列表</h3>
+                        <h3 class="box-title">最新文章更新列表</h3>
 
-                <div class="box-tools pull-right">
-                    <ul class="pagination pagination-sm inline">
+                        <div class="box-tools pull-right">
+                            <ul class="pagination pagination-sm inline">
 
-                    </ul>
-                </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <ul class="todo-list">
-                    @foreach($newArticles as $index=>$newArticle)
-                    <li>
-                        <!-- drag handle -->
-                        <span class="handle">
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <ul class="todo-list">
+                            @foreach($newArticles as $index=>$newArticle)
+                                <li>
+                                    <!-- drag handle -->
+                                    <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
-                        <!-- checkbox -->
-                        <input type="checkbox" value="">
-                        <!-- todo text -->
-                        <span class="text">{{$newArticle->title}}</span>
-                        <!-- Emphasis label -->
-                        <small class="label {{$labelStyle[$index]}} pull-right" style="font-weight: normal;"><i class="fa fa-clock-o"></i> {{$newArticle->published_at}}—{{$newArticle->write}}</small>
-                        <!-- General tools such as edit or delete-->
-                        <div class="tools">
-                            <i class="fa fa-edit"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+                                    <!-- checkbox -->
+                                    <input type="checkbox" value="">
+                                    <!-- todo text -->
+                                    <span class="text">{{$newArticle->title}}</span>
+                                    <!-- Emphasis label -->
+                                    <small class="label {{$labelStyle[$index]}} pull-right" style="font-weight: normal;"><i class="fa fa-clock-o"></i> {{$newArticle->published_at}}—{{$newArticle->write}}</small>
+                                    <!-- General tools such as edit or delete-->
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
             </div>
         </div>
     </div>
@@ -314,28 +314,12 @@
 @stop
 
 @section('libs')
-    <script src="/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Bootstrap 3.3.6 -->
-    <script src="/adminlte/bootstrap/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="/adminlte/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/adminlte/dist/js/app.min.js"></script>
-    <!-- Sparkline -->
-    <!-- SlimScroll 1.3.0 -->
-    <script src="/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/adminlte/dist/js/demo.js"></script>
     <script src="/adminlte/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- jvectormap -->
     <script src="/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="/adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- ChartJS 1.0.1 -->
     <script src="/adminlte/plugins/chartjs/Chart.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <!-- AdminLTE for demo purposes -->
     <script>
         $(function () {
 
@@ -356,18 +340,34 @@
             var salesChart = new Chart(salesChartCanvas);
 
             var salesChartData = {
-                labels: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", "星期一"],
+                labels: [
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*7))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*6))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*5))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*4))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*3))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::parse(date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::now())-3600*24*2))->dayOfWeek}}",
+                    "星期{{\Carbon\Carbon::yesterday()->dayOfWeek}}", "星期{{\Carbon\Carbon::now()->dayOfWeek}}"
+                ],
                 datasets: [
 
                     {
-                        label: "加盟流程",
+                        label: "电话提交数据",
                         fillColor: "rgba(60,141,188,0.9)",
                         strokeColor: "rgba(60,141,188,0.8)",
                         pointColor: "#3b8bba",
                         pointStrokeColor: "rgba(60,141,188,1)",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(60,141,188,1)",
-                        data: [20,15,25,11,8,7,15,22
+                        data: [
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*7))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*6)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*6))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*5)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*5))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*4)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*4))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*3)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*3))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*2)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',date('Y-m-d H:i:s',strtotime(\Carbon\Carbon::today())-3600*24*2))->where('created_at','<',strtotime(\Carbon\Carbon::today())-3600*24*1)->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',\Carbon\Carbon::yesterday())->where('created_at','<',\Carbon\Carbon::today())->count()}},
+                            {{\App\AdminModel\Phonemanage::where('created_at','>',\Carbon\Carbon::today())->count()}}
                         ]
                     }
                 ]
